@@ -1,0 +1,65 @@
+ion-content{
+    --background: #F5F5F3;
+    .float{
+        img{
+          height: 130px;
+          float:right;
+          margin-right: -60px;
+          margin-bottom: 0px;
+        }
+    }
+
+    .content{
+        img{
+            height: 100px;
+            margin-top: 130px;
+           margin-left: 65px;
+        }
+    }
+}
+
+
+form{
+    .formulaire{
+        margin-top: 25px;
+        margin-left: 25px;
+        margin-right: 25px;
+        ion-item{
+           margin-bottom: 5px;
+            font-family: 'Nunito, sans-serif';
+            background-color: #ffffff;
+            font-size: small;
+            border-radius: 50px;
+            ion-input{
+                padding-left: 10px !important; 
+            }
+        }
+    }
+    .pass{
+        font-size: 12px;
+        margin-top: 5px;
+        display: block;
+        margin-right: 20px;
+        text-align: right;  
+    }
+}
+
+
+
+
+.submit ion-button{
+    background-color: #3374d6;
+    color:  white;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 12px;
+    border-radius: 15px;
+}
+
+.label{
+    font-size: 12px;
+    margin-bottom: 3px;
+    ion-checkbox{
+        size: 13px;
+    }
+}
