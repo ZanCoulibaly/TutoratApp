@@ -1,37 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title *ngIf="Envoyeur?.envoyeur?.id === ID">{{Envoyeur?.receveur?.prenom}} {{Envoyeur?.receveur?.nom}}</ion-title>
-    <ion-title *ngIf="Envoyeur?.envoyeur?.id !== ID">{{Envoyeur?.envoyeur?.prenom}} {{Envoyeur?.envoyeur?.nom}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-back-button slot="start"></ion-back-button>
+        <ion-title *ngIf="Envoyeur?.envoyeur?.id === ID">{{Envoyeur?.receveur?.prenom}} {{Envoyeur?.receveur?.nom}}</ion-title>
+        <ion-title *ngIf="Envoyeur?.envoyeur?.id !== ID">{{Envoyeur?.envoyeur?.prenom}} {{Envoyeur?.envoyeur?.nom}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row  *ngFor="let item of Liste">
-      <ion-col size="9" *ngIf="item.envoyeur.id!==ID" class="message other-message">
-        <span>{{item.contenu}}</span><br>
-        <div class="time" text-right>
-          {{item.heure }} 
-        </div>
-      </ion-col>
+    <ion-grid>
+        <ion-row *ngFor="let item of Liste">
+            <ion-col size="9" *ngIf="item.envoyeur.id!==ID" class="message other-message">
+                <span>{{item.contenu}}</span><br>
+                <div class="time" text-right>
+                    {{item.heure }}
+                </div>
+            </ion-col>
 
-      <ion-col offset="3" size="9" *ngIf="item.envoyeur.id===ID"class="message my-message">
-        <span>{{item.contenu}}</span><br> 
-        <div class="time" text-right>
-          {{item.heure}}
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            <ion-col offset="3" size="9" *ngIf="item.envoyeur.id===ID" class="message my-message">
+                <span>{{item.contenu}}</span><br>
+                <div class="time" text-right>
+                    {{item.heure}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 
 <ion-footer>
-  <form #data="ngForm" (ngSubmit)="addChat(data)">
-    <ion-toolbar color="light">
-        <textarea autoGrow="true" [(ngModel)]="contenu" class="sendMsg" name="contenu" ngModel></textarea>
-        <ion-buttons fill="clear" color="primary" class="send"  slot="end">
-          <ion-button type="submit" [disabled]="contenu ===''">Envoyer</ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-  </form>
+    <form #data="ngForm" (ngSubmit)="addChat(data)">
+        <ion-toolbar color="light">
+            <textarea autoGrow="true" [(ngModel)]="contenu" class="sendMsg" name="contenu" ngModel></textarea>
+            <ion-buttons fill="clear" color="primary" class="send" slot="end">
+                <ion-button type="submit" [disabled]="contenu ===''">
+                    <ion-icon name="send" color="primary"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </form>
 </ion-footer>
